@@ -1,6 +1,8 @@
 package rikkei.academy.service.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import rikkei.academy.model.Customer;
 import rikkei.academy.model.Province;
 import rikkei.academy.repository.ICustomerRepository;
@@ -36,5 +38,20 @@ public class CustomerServiceIMPL implements ICustomerService {
     @Override
     public Iterable<Customer> findAllByProvince(Province province) {
         return customerRepository.findAllByProvince(province);
+    }
+
+    @Override
+    public Page<Customer> findAllByProvince(Province province, Pageable pageable) {
+        return customerRepository.findAllByProvince(province, pageable);
+    }
+
+    @Override
+    public Page<Customer> findAll(Pageable pageable) {
+        return customerRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Customer> findAllByFirstNameContaining(String firstName, Pageable pageable) {
+        return customerRepository.findAllByFirstNameContaining(firstName, pageable);
     }
 }
