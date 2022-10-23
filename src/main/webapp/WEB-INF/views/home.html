@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title th:text="#{home-title}">Home</title>
 </head>
 <body>
-<h1>Home</h1>
+<h1 th:text="#{home-header}">Home</h1>
+
+<span th:text="#{home-language}"></span>: <a href="?lang=en" th:text="#{language-en}">English</a> | <a href="?lang=vi"
+                                                                                                       th:text="#{language-vi}">VietNam</a>
+
 <p>
-    <a href="/province">Province Manager</a>
+    <a href="/province" th:text="#{home-province}">Province Manager</a>
 </p>
 
 <p>
-    <a href="/customer">Customer Manager</a>
+    <a href="/customer" th:text="#{home-customer}">Customer Manager</a>
 </p>
 
 </body>
